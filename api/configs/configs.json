@@ -1,0 +1,11 @@
+{
+    "env": "local",
+    "appPort": 3000,
+    "dbConfigs":
+    {
+        "user": "nero",
+        "password": "nero",
+        "host": "postgres",
+        "port": 5432
+    }
+}
