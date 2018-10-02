@@ -4,7 +4,7 @@ services:
     restart: "always"
     build: ./app
     ports:
-      -"3000:3000"
+      - "3001:3000"
   postgres:
     image: "postgres"
     environment:
@@ -15,4 +15,13 @@ services:
       - ./postgres/db.sql:/docker-entrypoint-initdb.d/db.sql
     ports:
       - "5432:5432"
+  pgadmin:
+    image: "dpage/pgadmin4"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "nerocube.tw@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "mypass"
+    links:
+      - postgres
+    ports:
+      - "5050:80"
     

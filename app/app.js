@@ -1,6 +1,6 @@
-var express = require('expres');
+var express = require('express');
 var logger = require('morgan');
-var bodyParser = require('body-passer');
+var bodyParser = require('body-parser');
 var moment = require('moment');
 var envConfigs = require('./configs/env');
 var uploads = require('./routes/uploads');
@@ -25,4 +25,13 @@ app.use('/', function (req, res, next) {
 });
 
 //add router
-app.use('/upload', upolads)
+app.use('/upload', uploads);
+
+var server =app.listen(envConfigs().appPort, function() {
+    var host = server.address().address;
+    var port = server.address().port;
+    console.log(moment().format('YYYY-MM-DD H:mm:ss') + '[server starts]');
+    console.log('app listening at http://%s:%s', host, port);
+});
+
+module.exports = app;
