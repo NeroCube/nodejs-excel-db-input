@@ -1,7 +1,7 @@
 var client = require('./postgres.js');
 module.exports = {
     getDatebaseCurrentTime: function(callback) {
-        client.query("", function (err, result) {
+        client.query("SELECT NOW()", function (err, result) {
             if(err) {
                 return callback(err, null);
             }
