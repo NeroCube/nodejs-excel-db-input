@@ -6,7 +6,7 @@
         "user": "nero",
         "password": "mypass",
         "host": "postgres",
-        "database": "test",
+        "database": "postgres",
         "port": 5432
     }
 }
