@@ -4,8 +4,9 @@
     "dbConfigs":
     {
         "user": "nero",
-        "password": "nero",
+        "password": "mypass",
         "host": "postgres",
+        "database": "test",
         "port": 5432
     }
 }

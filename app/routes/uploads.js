@@ -15,13 +15,12 @@ router.post('/excel', upload.single('rawdata'), function(req, res, next) {
     var data = JSON.stringify(xlsx);
     return uploadDao.getDatebaseCurrentTime(function(err, result) {
         if(err) {
-            err.status = 500;
-            return next(err);
+            return res.status(500).send({
+                "result": err
+            }).end();
         }
         return res.status(200).send({
-            "result": "success",
-            "datas": datas,
-            "db time": result
+            "result": result
         }).end();
     });
 });
